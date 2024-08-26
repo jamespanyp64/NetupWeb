@@ -64,6 +64,7 @@ const Image = styled.img`
 const UserPreview = ({ userId }: any) => {
   const link = `netup://global-link/user/${userId}`;
   const appUrl = "https://apps.apple.com/us/app/netup-social/id6478843705";
+  const webUrl = "https://www.netup.social";
   return (
     <WrapperContainer>
       <Header>
@@ -118,14 +119,16 @@ const UserPreview = ({ userId }: any) => {
                 window.location.href = link;
               }
               catch (error) {
+                window.location.href = webUrl;
                 window.setTimeout(() => {
                   window.location.href = appUrl
-                }, 500)
+                }, 1000)
               }
               finally {
+                window.location.href = webUrl;
                 window.setTimeout(() => {
                   window.location.href = appUrl
-                }, 500)
+                }, 1000)
               }
             }}
             style={{
@@ -215,7 +218,6 @@ const UserPreview = ({ userId }: any) => {
           <span>Open in App</span>
         </button>
       </div>
-      <iframe id="l" width="1" height="1" style="visibility:hidden"></iframe>
     </WrapperContainer>
   );
 };
